@@ -18,24 +18,52 @@ class MenuScene: SKScene, SKPhysicsContactDelegate  {
     
     
     var background = SKSpriteNode()
-    var ground = SKSpriteNode()
-    var flappyNode = SKSpriteNode()
-    var birdNode = SKSpriteNode()
-    var Bird = SKSpriteNode()
-    var TextureAtlas = SKTextureAtlas()
-    var TextureArray = [SKTexture]()
     
+    
+    var title1 = SKSpriteNode()
+    var title2 = SKSpriteNode()
+    var title3 = SKSpriteNode()
+    var title4 = SKSpriteNode()
+    var title5 = SKSpriteNode()
+    
+    var tittle3 = SKSpriteNode()
     var scoreButton = SKSpriteNode()
     var startButton = SKSpriteNode()
     
     override func didMove(to view: SKView) {
         
         
-        background = SKSpriteNode(imageNamed: "background.png")
-        background.setScale(3)
+        background = SKSpriteNode(imageNamed: "forest.png")
+        background.setScale(0.9)
         background.position = CGPoint(x: self.frame.width/2, y: background.frame.height/1.5)
               self.addChild(background)
        
+        
+        title1 = SKSpriteNode(imageNamed: "Furry.png")
+        title1.setScale(0.9)
+        title1.position = CGPoint(x: self.frame.width/2 - 100, y: self.frame.height/2 + 300 )
+        self.addChild(title1)
+        
+        title2 = SKSpriteNode(imageNamed: ",.png")
+        title2.setScale(0.9)
+        title2.position = CGPoint(x: self.frame.width/2 - 10, y: self.frame.height/2 + 330 )
+        self.addChild(title2)
+        
+        title3 = SKSpriteNode(imageNamed: "s.png")
+        title3.setScale(0.9)
+        title3.zPosition = 2
+        title3.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2 + 300 )
+        self.addChild(title3)
+        
+        title4 = SKSpriteNode(imageNamed: "Aerial.png")
+        title4.setScale(0.9)
+        title4.position = CGPoint(x: self.frame.width/2 + 100, y: self.frame.height/2 + 300 )
+        self.addChild(title4)
+        
+        title5 = SKSpriteNode(imageNamed: "Fury.png")
+        title5.setScale(0.9)
+        title5.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2 + 200 )
+        self.addChild(title5)
         
         
         
