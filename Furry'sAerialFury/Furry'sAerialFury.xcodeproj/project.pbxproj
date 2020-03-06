@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		170BC6202412B01A0053774E /* OptionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170BC61F2412B01A0053774E /* OptionScreen.swift */; };
+		170BC6222412B03B0053774E /* OptionScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 170BC6212412B03B0053774E /* OptionScene.sks */; };
+		170BC6242412B1B00053774E /* CreditScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 170BC6232412B1B00053774E /* CreditScene.sks */; };
+		170BC6262412B1D00053774E /* CreditScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170BC6252412B1D00053774E /* CreditScreen.swift */; };
+		170BC6282412B2A00053774E /* PauseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170BC6272412B2A00053774E /* PauseScreen.swift */; };
+		170BC62A2412B2B40053774E /* PauseScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 170BC6292412B2B40053774E /* PauseScene.sks */; };
 		B528413A24129A92007A451E /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B528413924129A92007A451E /* MainMenu.swift */; };
 		B5C02F43241296560029417E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C02F42241296560029417E /* AppDelegate.swift */; };
 		B5C02F45241296560029417E /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B5C02F44241296560029417E /* GameScene.sks */; };
@@ -38,6 +44,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		170BC61F2412B01A0053774E /* OptionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionScreen.swift; sourceTree = "<group>"; };
+		170BC6212412B03B0053774E /* OptionScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = OptionScene.sks; sourceTree = "<group>"; };
+		170BC6232412B1B00053774E /* CreditScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CreditScene.sks; sourceTree = "<group>"; };
+		170BC6252412B1D00053774E /* CreditScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditScreen.swift; sourceTree = "<group>"; };
+		170BC6272412B2A00053774E /* PauseScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseScreen.swift; sourceTree = "<group>"; };
+		170BC6292412B2B40053774E /* PauseScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PauseScene.sks; sourceTree = "<group>"; };
 		B528413924129A92007A451E /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		B5C02F3F241296560029417E /* Furry'sAerialFury.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Furry'sAerialFury.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C02F42241296560029417E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +127,12 @@
 				B5C02F51241296560029417E /* LaunchScreen.storyboard */,
 				B5C02F54241296560029417E /* Info.plist */,
 				B528413924129A92007A451E /* MainMenu.swift */,
+				170BC61F2412B01A0053774E /* OptionScreen.swift */,
+				170BC6212412B03B0053774E /* OptionScene.sks */,
+				170BC6232412B1B00053774E /* CreditScene.sks */,
+				170BC6252412B1D00053774E /* CreditScreen.swift */,
+				170BC6272412B2A00053774E /* PauseScreen.swift */,
+				170BC6292412B2B40053774E /* PauseScene.sks */,
 			);
 			path = "Furry'sAerialFury";
 			sourceTree = "<group>";
@@ -242,10 +260,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5C02F4E241296560029417E /* Main.storyboard in Resources */,
+				170BC62A2412B2B40053774E /* PauseScene.sks in Resources */,
 				B5C02F45241296560029417E /* GameScene.sks in Resources */,
 				B5C02F50241296560029417E /* Assets.xcassets in Resources */,
 				B5C02F53241296560029417E /* LaunchScreen.storyboard in Resources */,
+				170BC6242412B1B00053774E /* CreditScene.sks in Resources */,
 				B5C02F47241296560029417E /* Actions.sks in Resources */,
+				170BC6222412B03B0053774E /* OptionScene.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,9 +292,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5C02F49241296560029417E /* GameScene.swift in Sources */,
+				170BC6282412B2A00053774E /* PauseScreen.swift in Sources */,
 				B5C02F4B241296560029417E /* GameViewController.swift in Sources */,
+				170BC6262412B1D00053774E /* CreditScreen.swift in Sources */,
 				B5C02F43241296560029417E /* AppDelegate.swift in Sources */,
 				B528413A24129A92007A451E /* MainMenu.swift in Sources */,
+				170BC6202412B01A0053774E /* OptionScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
