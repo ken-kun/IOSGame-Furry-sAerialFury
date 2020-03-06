@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B528413A24129A92007A451E /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B528413924129A92007A451E /* MainMenu.swift */; };
 		B5C02F43241296560029417E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C02F42241296560029417E /* AppDelegate.swift */; };
 		B5C02F45241296560029417E /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B5C02F44241296560029417E /* GameScene.sks */; };
 		B5C02F47241296560029417E /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = B5C02F46241296560029417E /* Actions.sks */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B528413924129A92007A451E /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		B5C02F3F241296560029417E /* Furry'sAerialFury.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Furry'sAerialFury.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C02F42241296560029417E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5C02F44241296560029417E /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				B5C02F4F241296560029417E /* Assets.xcassets */,
 				B5C02F51241296560029417E /* LaunchScreen.storyboard */,
 				B5C02F54241296560029417E /* Info.plist */,
+				B528413924129A92007A451E /* MainMenu.swift */,
 			);
 			path = "Furry'sAerialFury";
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				B5C02F49241296560029417E /* GameScene.swift in Sources */,
 				B5C02F4B241296560029417E /* GameViewController.swift in Sources */,
 				B5C02F43241296560029417E /* AppDelegate.swift in Sources */,
+				B528413A24129A92007A451E /* MainMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
