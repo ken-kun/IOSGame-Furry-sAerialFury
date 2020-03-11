@@ -10,12 +10,19 @@ import SpriteKit
 import GameplayKit
 
 class OptionScene: SKScene {
+    
+    var background = SKSpriteNode()
+    
     override func didMove(to view: SKView) {
-        self.backgroundColor = SKColor.init(red: 0, green: 0, blue: 0, alpha: 0)
+        
+        background = SKSpriteNode(imageNamed: "forest")
+        background.setScale(0.9)
+        background.position =  CGPoint(x: self.frame.width/2 - 400, y: background.frame.height/1.5)
+        addChild(background)
        let winner = SKLabelNode(fontNamed: "Chalkduster")
         winner.text = "Option!"
         winner.fontSize = 65
-        winner.position = CGPoint(x: frame.midX, y: frame.midY)
+        winner.position = CGPoint(x: frame.midX, y: frame.midY + 300)
            
         addChild(winner)
     
