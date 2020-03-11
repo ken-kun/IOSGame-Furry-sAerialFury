@@ -83,6 +83,7 @@ class MenuScene: SKScene, SKPhysicsContactDelegate  {
         scoreButton.zPosition = 6
         self.addChild(scoreButton)
         
+        /*
         let BGM = Bundle.main.path(forResource: "Floral Fury", ofType: "mp3")
         
         do {
@@ -93,6 +94,7 @@ class MenuScene: SKScene, SKPhysicsContactDelegate  {
         }
         
         audio.play()
+ */
         
     }
     
