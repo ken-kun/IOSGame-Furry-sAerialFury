@@ -9,6 +9,7 @@
 import Foundation
 import SpriteKit
 import GameplayKit
+import AVFoundation
 
 class MenuScene: SKScene, SKPhysicsContactDelegate  {
     
@@ -29,6 +30,8 @@ class MenuScene: SKScene, SKPhysicsContactDelegate  {
     var tittle3 = SKSpriteNode()
     var scoreButton = SKSpriteNode()
     var startButton = SKSpriteNode()
+    
+    var audio = AVAudioPlayer()
     
     override func didMove(to view: SKView) {
         
@@ -80,7 +83,16 @@ class MenuScene: SKScene, SKPhysicsContactDelegate  {
         scoreButton.zPosition = 6
         self.addChild(scoreButton)
         
+        let BGM = Bundle.main.path(forResource: "Floral Fury", ofType: "mp3")
         
+        do {
+            audio = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: BGM!))
+        }
+        catch{
+            print(error)
+        }
+        
+        audio.play()
         
     }
     
