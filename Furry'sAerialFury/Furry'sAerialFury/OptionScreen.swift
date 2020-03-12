@@ -63,7 +63,7 @@ class OptionScene: SKScene {
   
     override func update(_ currentTime: TimeInterval) {
         audio.setVolume(slider.value, fadeDuration: 200)
-        print(slider.value)
+      //  print(slider.value)
     }
     
    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

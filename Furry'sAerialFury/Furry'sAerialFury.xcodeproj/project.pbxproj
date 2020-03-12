@@ -25,6 +25,8 @@
 		B5C02F53241296560029417E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5C02F51241296560029417E /* LaunchScreen.storyboard */; };
 		B5C02F5E241296560029417E /* Furry_sAerialFuryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C02F5D241296560029417E /* Furry_sAerialFuryTests.swift */; };
 		B5C02F69241296560029417E /* Furry_sAerialFuryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C02F68241296560029417E /* Furry_sAerialFuryUITests.swift */; };
+		F3078CCB2419B5B800E385D2 /* GameOverScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F3078CCA2419B5B800E385D2 /* GameOverScene.sks */; };
+		F3078CCD2419B60000E385D2 /* GameOverScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3078CCC2419B60000E385D2 /* GameOverScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		B5C02F64241296560029417E /* Furry'sAerialFuryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Furry'sAerialFuryUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C02F68241296560029417E /* Furry_sAerialFuryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Furry_sAerialFuryUITests.swift; sourceTree = "<group>"; };
 		B5C02F6A241296560029417E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3078CCA2419B5B800E385D2 /* GameOverScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameOverScene.sks; sourceTree = "<group>"; };
+		F3078CCC2419B60000E385D2 /* GameOverScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +140,8 @@
 				170BC6252412B1D00053774E /* CreditScreen.swift */,
 				170BC6272412B2A00053774E /* PauseScreen.swift */,
 				170BC6292412B2B40053774E /* PauseScene.sks */,
+				F3078CCA2419B5B800E385D2 /* GameOverScene.sks */,
+				F3078CCC2419B60000E385D2 /* GameOverScreen.swift */,
 			);
 			path = "Furry'sAerialFury";
 			sourceTree = "<group>";
@@ -265,6 +271,7 @@
 				B5C02F4E241296560029417E /* Main.storyboard in Resources */,
 				170BC62A2412B2B40053774E /* PauseScene.sks in Resources */,
 				B5C02F45241296560029417E /* GameScene.sks in Resources */,
+				F3078CCB2419B5B800E385D2 /* GameOverScene.sks in Resources */,
 				B5C02F50241296560029417E /* Assets.xcassets in Resources */,
 				B5C02F53241296560029417E /* LaunchScreen.storyboard in Resources */,
 				170BC6242412B1B00053774E /* CreditScene.sks in Resources */,
@@ -300,6 +307,7 @@
 				B5C02F4B241296560029417E /* GameViewController.swift in Sources */,
 				170BC6262412B1D00053774E /* CreditScreen.swift in Sources */,
 				B5C02F43241296560029417E /* AppDelegate.swift in Sources */,
+				F3078CCD2419B60000E385D2 /* GameOverScreen.swift in Sources */,
 				B528413A24129A92007A451E /* MainMenu.swift in Sources */,
 				170BC6202412B01A0053774E /* OptionScreen.swift in Sources */,
 			);
