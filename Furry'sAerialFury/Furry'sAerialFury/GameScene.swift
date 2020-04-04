@@ -13,6 +13,17 @@ let attackButton = UIButton.init(type:.system)
 let specialButton = UIButton.init(type:.system)
 let DPAD = UIButton.init(type:.system)
 class GameScene: SKScene {
+    
+    var TextureAtlas = SKTextureAtlas()
+    var TextureArray = [SKTexture]()
+    
+    var TextureAtlasEnemy = SKTextureAtlas()
+    var TextureArrayEnemy = [SKTexture]()
+    
+    var background = SKSpriteNode()
+    var rabbitPlane = SKSpriteNode()
+    var enemyPlane = SKSpriteNode()
+    
     override func didMove(to view: SKView) {
         self.backgroundColor = SKColor.init(red: 0, green: 0, blue: 0, alpha: 0)
        let mainGame = SKLabelNode(fontNamed: "Chalkduster")
@@ -73,6 +84,50 @@ class GameScene: SKScene {
         DPAD.layer.masksToBounds = true
         DPAD.addTarget(self, action: #selector(specialButtonAction(_:)), for: .touchUpInside)
         self.view?.addSubview(DPAD)
+        
+        background = SKSpriteNode(imageNamed: "gamebackground.png")
+        background.setScale(1)
+        background.zPosition = 1
+        background.position = CGPoint(x: self.frame.width/2, y: background.frame.height/2 - 50)
+        self.addChild(background)
+        
+        
+        TextureAtlas = SKTextureAtlas(named: "plane.atlas")
+            for i in 0...1{
+                
+                let Name = "Plane\(i)"
+                TextureArray.append(SKTexture(imageNamed: Name))
+                
+            }
+            rabbitPlane = SKSpriteNode(imageNamed: "Plane0" )
+            rabbitPlane.setScale(1)
+            rabbitPlane.position = CGPoint(x:self.frame.width/2, y: self.frame.height/2 - 200)
+            rabbitPlane.zPosition = 3
+            rabbitPlane.run(SKAction.repeatForever(SKAction.animate(with: TextureArray, timePerFrame: 0.1, resize: true, restore: true)))
+        
+            self.addChild(rabbitPlane)
+        
+        
+        TextureAtlasEnemy = SKTextureAtlas(named: "enemy.atlas")
+            for i in 0...1{
+                
+                let Name = "Enemy\(i)"
+                TextureArrayEnemy.append(SKTexture(imageNamed: Name))
+                
+            }
+            enemyPlane = SKSpriteNode(imageNamed: "Enemy0" )
+            enemyPlane.setScale(1)
+            enemyPlane.position = CGPoint(x:self.frame.width/2, y: self.frame.height/2 + 200)
+            enemyPlane.zPosition = 2
+            enemyPlane.run(SKAction.repeatForever(SKAction.animate(with: TextureArrayEnemy, timePerFrame: 0.1, resize: true, restore: true)))
+        
+            self.addChild(enemyPlane)
+        
+        
+        
+        
+        
+        
     }
     internal override func willMove(from view: SKView) {
         pauseButton.removeFromSuperview()

@@ -14,6 +14,8 @@
 		170BC6282412B2A00053774E /* PauseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170BC6272412B2A00053774E /* PauseScreen.swift */; };
 		170BC62A2412B2B40053774E /* PauseScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 170BC6292412B2B40053774E /* PauseScene.sks */; };
 		1A77E373241866D300E7D37F /* Floral Fury.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1A77E372241866D300E7D37F /* Floral Fury.mp3 */; };
+		1AD5CDC02439500E00B24F2A /* plane.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1AD5CDBF2439500E00B24F2A /* plane.atlas */; };
+		1AD5CDC4243954FB00B24F2A /* enemy.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1AD5CDC3243954FB00B24F2A /* enemy.atlas */; };
 		B528413A24129A92007A451E /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B528413924129A92007A451E /* MainMenu.swift */; };
 		B5C02F43241296560029417E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C02F42241296560029417E /* AppDelegate.swift */; };
 		B5C02F45241296560029417E /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B5C02F44241296560029417E /* GameScene.sks */; };
@@ -54,6 +56,8 @@
 		170BC6272412B2A00053774E /* PauseScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseScreen.swift; sourceTree = "<group>"; };
 		170BC6292412B2B40053774E /* PauseScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PauseScene.sks; sourceTree = "<group>"; };
 		1A77E372241866D300E7D37F /* Floral Fury.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Floral Fury.mp3"; sourceTree = "<group>"; };
+		1AD5CDBF2439500E00B24F2A /* plane.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = plane.atlas; sourceTree = "<group>"; };
+		1AD5CDC3243954FB00B24F2A /* enemy.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = enemy.atlas; sourceTree = "<group>"; };
 		B528413924129A92007A451E /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		B5C02F3F241296560029417E /* Furry'sAerialFury.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Furry'sAerialFury.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C02F42241296560029417E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +127,8 @@
 		B5C02F41241296560029417E /* Furry'sAerialFury */ = {
 			isa = PBXGroup;
 			children = (
+				1AD5CDC3243954FB00B24F2A /* enemy.atlas */,
+				1AD5CDBF2439500E00B24F2A /* plane.atlas */,
 				1A77E372241866D300E7D37F /* Floral Fury.mp3 */,
 				B5C02F42241296560029417E /* AppDelegate.swift */,
 				B5C02F44241296560029417E /* GameScene.sks */,
@@ -275,6 +281,8 @@
 				B5C02F50241296560029417E /* Assets.xcassets in Resources */,
 				B5C02F53241296560029417E /* LaunchScreen.storyboard in Resources */,
 				170BC6242412B1B00053774E /* CreditScene.sks in Resources */,
+				1AD5CDC02439500E00B24F2A /* plane.atlas in Resources */,
+				1AD5CDC4243954FB00B24F2A /* enemy.atlas in Resources */,
 				1A77E373241866D300E7D37F /* Floral Fury.mp3 in Resources */,
 				B5C02F47241296560029417E /* Actions.sks in Resources */,
 				170BC6222412B03B0053774E /* OptionScene.sks in Resources */,
