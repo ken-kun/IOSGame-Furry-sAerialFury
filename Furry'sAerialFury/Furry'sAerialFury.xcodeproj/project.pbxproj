@@ -29,6 +29,7 @@
 		B5C02F69241296560029417E /* Furry_sAerialFuryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C02F68241296560029417E /* Furry_sAerialFuryUITests.swift */; };
 		F3078CCB2419B5B800E385D2 /* GameOverScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F3078CCA2419B5B800E385D2 /* GameOverScene.sks */; };
 		F3078CCD2419B60000E385D2 /* GameOverScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3078CCC2419B60000E385D2 /* GameOverScreen.swift */; };
+		F3E6D1E2243A7DCA007C5216 /* AnalogJoystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E6D1E1243A7DC9007C5216 /* AnalogJoystick.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		B5C02F6A241296560029417E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3078CCA2419B5B800E385D2 /* GameOverScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameOverScene.sks; sourceTree = "<group>"; };
 		F3078CCC2419B60000E385D2 /* GameOverScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScreen.swift; sourceTree = "<group>"; };
+		F3E6D1E1243A7DC9007C5216 /* AnalogJoystick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalogJoystick.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 		B5C02F41241296560029417E /* Furry'sAerialFury */ = {
 			isa = PBXGroup;
 			children = (
+				F3E6D1E1243A7DC9007C5216 /* AnalogJoystick.swift */,
 				1AD5CDC3243954FB00B24F2A /* enemy.atlas */,
 				1AD5CDBF2439500E00B24F2A /* plane.atlas */,
 				1A77E372241866D300E7D37F /* Floral Fury.mp3 */,
@@ -311,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5C02F49241296560029417E /* GameScene.swift in Sources */,
+				F3E6D1E2243A7DCA007C5216 /* AnalogJoystick.swift in Sources */,
 				170BC6282412B2A00053774E /* PauseScreen.swift in Sources */,
 				B5C02F4B241296560029417E /* GameViewController.swift in Sources */,
 				170BC6262412B1D00053774E /* CreditScreen.swift in Sources */,

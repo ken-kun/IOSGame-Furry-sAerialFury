@@ -11,9 +11,19 @@ import GameplayKit
 let pauseButton = UIButton.init(type:.system)
 let attackButton = UIButton.init(type:.system)
 let specialButton = UIButton.init(type:.system)
-let DPAD = UIButton.init(type:.system)
+//let DPAD = UIButton.init(type:.system)
 class GameScene: SKScene {
-    
+    struct ScreenSize {
+      static let width        = UIScreen.main.bounds.size.width
+      static let height       = UIScreen.main.bounds.size.height
+      static let maxLength    = max(ScreenSize.width, ScreenSize.height)
+      static let minLength    = min(ScreenSize.width, ScreenSize.height)
+      static let size         = CGSize(width: ScreenSize.width, height: ScreenSize.height)
+    }
+    enum NodesZPosition: CGFloat {
+      case background, hero, joystick
+    }
+     let velocityMultiplier: CGFloat = 0.12
     var TextureAtlas = SKTextureAtlas()
     var TextureArray = [SKTexture]()
     
@@ -23,8 +33,25 @@ class GameScene: SKScene {
     var background = SKSpriteNode()
     var rabbitPlane = SKSpriteNode()
     var enemyPlane = SKSpriteNode()
-    
+     lazy var analogJoystick: AnalogJoystick = {
+         let js = AnalogJoystick(diameter: 100, colors: nil, images: (substrate: #imageLiteral(resourceName: "jSubstrate"), stick: #imageLiteral(resourceName: "jStick")))
+         js.position = CGPoint(x: 100, y: 100)
+        debugPrint("test1")
+         js.zPosition = NodesZPosition.joystick.rawValue
+         return js
+       }()
+    func setupJoystick() {
+          addChild(analogJoystick)
+     
+          analogJoystick.trackingHandler = { [unowned self] data in
+            self.rabbitPlane.position = CGPoint(
+            x: self.rabbitPlane.position.x + (data.velocity.x * self.velocityMultiplier),
+            y: self.rabbitPlane.position.y + (data.velocity.y * self.velocityMultiplier))
+          }
+      
+    }
     override func didMove(to view: SKView) {
+        setupJoystick()
         self.backgroundColor = SKColor.init(red: 0, green: 0, blue: 0, alpha: 0)
        let mainGame = SKLabelNode(fontNamed: "Chalkduster")
         mainGame.text = "Main Game!"
@@ -72,7 +99,7 @@ class GameScene: SKScene {
         specialButton.layer.masksToBounds = true
         specialButton.addTarget(self, action: #selector(specialButtonAction(_:)), for: .touchUpInside)
         self.view?.addSubview(specialButton)
-        
+        /*
         DPAD.frame = CGRect(x: 50.0, y: 680.0, width: 100.0, height: 100.0)
         DPAD.setTitle("D-PAD", for: .normal)
         DPAD.layer.borderWidth = 5.0
@@ -84,7 +111,7 @@ class GameScene: SKScene {
         DPAD.layer.masksToBounds = true
         DPAD.addTarget(self, action: #selector(specialButtonAction(_:)), for: .touchUpInside)
         self.view?.addSubview(DPAD)
-        
+        */
         /////////////////////////////////////////////////////////////
         
         for i in 0..<2 {
@@ -145,7 +172,7 @@ class GameScene: SKScene {
         pauseButton.removeFromSuperview()
         attackButton.removeFromSuperview()
         specialButton.removeFromSuperview()
-        DPAD.removeFromSuperview()
+        //DPAD.removeFromSuperview()
     }
     @objc func pauseButtonAction(_ : UIButton){
        
