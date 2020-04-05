@@ -85,11 +85,23 @@ class GameScene: SKScene {
         DPAD.addTarget(self, action: #selector(specialButtonAction(_:)), for: .touchUpInside)
         self.view?.addSubview(DPAD)
         
-        background = SKSpriteNode(imageNamed: "gamebackground.png")
-        background.setScale(1)
-        background.zPosition = 1
-        background.position = CGPoint(x: self.frame.width/2, y: background.frame.height/2 - 50)
-        self.addChild(background)
+        /////////////////////////////////////////////////////////////
+        
+        for i in 0..<2 {
+            background = SKSpriteNode(imageNamed: "gamebackground.png")
+            background.anchorPoint = CGPoint(x: 0, y: 0)
+            background.setScale(1)
+            background.position = CGPoint(x: 0, y: CGFloat(i) * self.frame.height)
+            background.name = "background"
+            self.addChild(background)
+            
+        }
+        
+        //background = SKSpriteNode(imageNamed: "gamebackground.png")
+        //background.setScale(1)
+        //background.zPosition = 1
+        //background.position = CGPoint(x: self.frame.width/2, y: background.frame.height/2 - 50)
+        //self.addChild(background)
         
         
         TextureAtlas = SKTextureAtlas(named: "plane.atlas")
@@ -146,5 +158,18 @@ class GameScene: SKScene {
       }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         scene?.view?.presentScene(OptionScene(size: self.frame.size))
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+        enumerateChildNodes(withName: "background", using: ({
+            (node, error) in
+            
+            var bg = node as! SKSpriteNode
+            bg.position = CGPoint(x: bg.position.x, y: bg.position.y - 3)
+            bg.setScale(1)
+            if bg.position.y <= -bg.size.height {
+                bg.position = CGPoint(x: bg.position.x, y: bg.position.y + bg.size.height * 2)
+            }
+        }))
     }
 }
