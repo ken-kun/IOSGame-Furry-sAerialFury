@@ -33,6 +33,16 @@ class GameScene: SKScene {
     var background = SKSpriteNode()
     var rabbitPlane = SKSpriteNode()
     var enemyPlane = SKSpriteNode()
+    var enemyGroup = SKNode()
+    var moveAndRemove = SKAction()
+    
+    
+    
+    
+    
+    
+    
+    
      lazy var analogJoystick: AnalogJoystick = {
          let js = AnalogJoystick(diameter: 100, colors: nil, images: (substrate: #imageLiteral(resourceName: "jSubstrate"), stick: #imageLiteral(resourceName: "jStick")))
          js.position = CGPoint(x: 100, y: 100)
@@ -124,11 +134,7 @@ class GameScene: SKScene {
             
         }
         
-        //background = SKSpriteNode(imageNamed: "gamebackground.png")
-        //background.setScale(1)
-        //background.zPosition = 1
-        //background.position = CGPoint(x: self.frame.width/2, y: background.frame.height/2 - 50)
-        //self.addChild(background)
+        
         
         
         TextureAtlas = SKTextureAtlas(named: "plane.atlas")
@@ -139,12 +145,44 @@ class GameScene: SKScene {
                 
             }
             rabbitPlane = SKSpriteNode(imageNamed: "Plane0" )
-            rabbitPlane.setScale(1)
+            rabbitPlane.setScale(0.5)
             rabbitPlane.position = CGPoint(x:self.frame.width/2, y: self.frame.height/2 - 200)
             rabbitPlane.zPosition = 3
             rabbitPlane.run(SKAction.repeatForever(SKAction.animate(with: TextureArray, timePerFrame: 0.1, resize: true, restore: true)))
         
             self.addChild(rabbitPlane)
+        
+        
+//        TextureAtlasEnemy = SKTextureAtlas(named: "enemy.atlas")
+//            for i in 0...1{
+//
+//                let Name = "Enemy\(i)"
+//                TextureArrayEnemy.append(SKTexture(imageNamed: Name))
+//
+//            }
+//            enemyPlane = SKSpriteNode(imageNamed: "Enemy0" )
+//            enemyPlane.setScale(0.5)
+//            enemyPlane.position = CGPoint(x:self.frame.width/2, y: self.frame.height/2 + 200)
+//            enemyPlane.zPosition = 2
+//            enemyPlane.run(SKAction.repeatForever(SKAction.animate(with: TextureArrayEnemy, timePerFrame: 0.1, resize: true, restore: true)))
+//
+//            self.addChild(enemyPlane)
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+    func enemySpawn() {
+        
+        
         
         
         TextureAtlasEnemy = SKTextureAtlas(named: "enemy.atlas")
@@ -155,19 +193,26 @@ class GameScene: SKScene {
                 
             }
             enemyPlane = SKSpriteNode(imageNamed: "Enemy0" )
-            enemyPlane.setScale(1)
-            enemyPlane.position = CGPoint(x:self.frame.width/2, y: self.frame.height/2 + 200)
+            enemyPlane.setScale(0.5)
+            enemyPlane.position = CGPoint(x:self.frame.width/2, y: self.frame.height/2 + 600)
             enemyPlane.zPosition = 2
             enemyPlane.run(SKAction.repeatForever(SKAction.animate(with: TextureArrayEnemy, timePerFrame: 0.1, resize: true, restore: true)))
+        self.addChild(enemyPlane)
+
         
-            self.addChild(enemyPlane)
+        var randomPosition = CGFloat.random(min: -200, max: 200)
+        enemyPlane.position.x = enemyPlane.position.x + randomPosition
         
         
-        
-        
+        enemyPlane.run(moveAndRemove)
         
         
     }
+    
+    
+    
+    
+    
     internal override func willMove(from view: SKView) {
         pauseButton.removeFromSuperview()
         attackButton.removeFromSuperview()
@@ -184,7 +229,26 @@ class GameScene: SKScene {
           
       }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        scene?.view?.presentScene(OptionScene(size: self.frame.size))
+        //scene?.view?.presentScene(OptionScene(size: self.frame.size))
+        
+        let spawn = SKAction.run({
+            () in
+            
+            self.enemySpawn()
+        })
+        
+        let delay = SKAction.wait(forDuration: 2.0)
+        let spawnDelay = SKAction.sequence([spawn, delay])
+        let spawnDelayForever = SKAction.repeatForever(spawnDelay)
+        self.run(spawnDelayForever)
+        
+        let distance = CGFloat(self.frame.width * 3 + enemyPlane.frame.width)
+        let moveEnemy = SKAction.moveBy(x: 0, y: -distance - 60, duration: TimeInterval(0.010 * distance ))
+        let removeEnemy = SKAction.removeFromParent()
+        moveAndRemove = SKAction.sequence([moveEnemy, removeEnemy])
+        
+        
+        
     }
     
     override func update(_ currentTime: TimeInterval) {

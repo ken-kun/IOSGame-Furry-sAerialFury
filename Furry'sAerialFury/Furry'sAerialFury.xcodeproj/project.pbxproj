@@ -16,6 +16,7 @@
 		1A77E373241866D300E7D37F /* Floral Fury.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1A77E372241866D300E7D37F /* Floral Fury.mp3 */; };
 		1AD5CDC02439500E00B24F2A /* plane.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1AD5CDBF2439500E00B24F2A /* plane.atlas */; };
 		1AD5CDC4243954FB00B24F2A /* enemy.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1AD5CDC3243954FB00B24F2A /* enemy.atlas */; };
+		1AD5CDC6243AA1E200B24F2A /* RandomNumberFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5CDC5243AA1E200B24F2A /* RandomNumberFunction.swift */; };
 		B528413A24129A92007A451E /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B528413924129A92007A451E /* MainMenu.swift */; };
 		B5C02F43241296560029417E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C02F42241296560029417E /* AppDelegate.swift */; };
 		B5C02F45241296560029417E /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B5C02F44241296560029417E /* GameScene.sks */; };
@@ -59,6 +60,7 @@
 		1A77E372241866D300E7D37F /* Floral Fury.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Floral Fury.mp3"; sourceTree = "<group>"; };
 		1AD5CDBF2439500E00B24F2A /* plane.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = plane.atlas; sourceTree = "<group>"; };
 		1AD5CDC3243954FB00B24F2A /* enemy.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = enemy.atlas; sourceTree = "<group>"; };
+		1AD5CDC5243AA1E200B24F2A /* RandomNumberFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNumberFunction.swift; sourceTree = "<group>"; };
 		B528413924129A92007A451E /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		B5C02F3F241296560029417E /* Furry'sAerialFury.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Furry'sAerialFury.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C02F42241296560029417E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				B5C02F44241296560029417E /* GameScene.sks */,
 				B5C02F46241296560029417E /* Actions.sks */,
 				B5C02F48241296560029417E /* GameScene.swift */,
+				1AD5CDC5243AA1E200B24F2A /* RandomNumberFunction.swift */,
 				B5C02F4A241296560029417E /* GameViewController.swift */,
 				B5C02F4C241296560029417E /* Main.storyboard */,
 				B5C02F4F241296560029417E /* Assets.xcassets */,
@@ -314,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5C02F49241296560029417E /* GameScene.swift in Sources */,
+				1AD5CDC6243AA1E200B24F2A /* RandomNumberFunction.swift in Sources */,
 				F3E6D1E2243A7DCA007C5216 /* AnalogJoystick.swift in Sources */,
 				170BC6282412B2A00053774E /* PauseScreen.swift in Sources */,
 				B5C02F4B241296560029417E /* GameViewController.swift in Sources */,
