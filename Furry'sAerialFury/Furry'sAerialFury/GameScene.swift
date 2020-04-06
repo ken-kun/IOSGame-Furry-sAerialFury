@@ -167,6 +167,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let spawn = SKAction.run({
             () in
             
+            
             self.enemySpawn()
         })
         
@@ -179,6 +180,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let moveEnemy = SKAction.moveBy(x: 0, y: -distance - 60, duration: TimeInterval(0.010 * distance ))
         let removeEnemy = SKAction.removeFromParent()
         moveAndRemove = SKAction.sequence([moveEnemy, removeEnemy])
+        
+        
+        let Bulletspawn = SKAction.run({
+            () in
+            
+            self.enemyFireBullet()
+            
+        })
+        
+        let timeDelay = SKAction.wait(forDuration: 2.0)
+        let spawnBulletDelay = SKAction.sequence([Bulletspawn, timeDelay])
+        let spawnForever = SKAction.repeatForever(spawnBulletDelay)
+        self.run(spawnForever)
         
         
 
@@ -194,6 +208,38 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    func enemyFireBullet(){
+        
+        
+        let enemyBullet = SKSpriteNode(imageNamed: "EnemyBullet")
+        enemyBullet.position = enemyPlane.position
+        enemyBullet.position.y += 5
+        enemyBullet.zPosition = 2
+        
+        enemyBullet.physicsBody = SKPhysicsBody(rectangleOf: enemyBullet.size)
+        enemyBullet.physicsBody?.categoryBitMask = PhysicsBodyType.enemyBullet
+        enemyBullet.physicsBody?.collisionBitMask = PhysicsBodyType.rabbitPlane
+        enemyBullet.physicsBody?.contactTestBitMask = PhysicsBodyType.rabbitPlane
+        enemyBullet.physicsBody?.isDynamic = true
+        enemyBullet.physicsBody?.affectedByGravity = false
+        enemyBullet.physicsBody?.usesPreciseCollisionDetection = true
+        
+        self.addChild(enemyBullet)
+        
+        var enemyActionArray = [SKAction]()
+        
+        enemyActionArray.append(SKAction.move(to: CGPoint(x: enemyPlane.position.x, y: -self.frame.size.height + 10), duration: 8))
+        enemyActionArray.append(SKAction.removeFromParent())
+        
+        enemyBullet.run(SKAction.sequence(enemyActionArray))
+        
+        
+        
+        
+        
+        
+        
+    }
     
     func fireBullet(){
         
@@ -278,7 +324,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         //scene?.view?.presentScene(OptionScene(size: self.frame.size))
         
-        
+        enemyFireBullet()
         
         
         
