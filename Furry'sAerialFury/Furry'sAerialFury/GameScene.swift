@@ -216,7 +216,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         var actionArray = [SKAction]()
         
-        actionArray.append(SKAction.move(to: CGPoint(x: rabbitPlane.position.x, y: self.frame.size.height + 10), duration: 0.3))
+        actionArray.append(SKAction.move(to: CGPoint(x: rabbitPlane.position.x, y: self.frame.size.height + 10), duration: 1.3))
         actionArray.append(SKAction.removeFromParent())
         
         bullet.run(SKAction.sequence(actionArray))
