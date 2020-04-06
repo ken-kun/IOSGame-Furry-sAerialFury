@@ -8,11 +8,21 @@
 
 import SpriteKit
 import GameplayKit
+
+struct PhysicsBodyType {
+    static let rabbitPlane: UInt32 = 0x1 << 1
+    static let enemyPlane: UInt32 = 0x1 << 2
+    static let bullet: UInt32 = 0x1 << 3
+    static let enemyBullet: UInt32 = 0x1 << 4
+}
+
+
+
 let pauseButton = UIButton.init(type:.system)
 let attackButton = UIButton.init(type:.system)
 let specialButton = UIButton.init(type:.system)
 //let DPAD = UIButton.init(type:.system)
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     struct ScreenSize {
       static let width        = UIScreen.main.bounds.size.width
       static let height       = UIScreen.main.bounds.size.height
@@ -153,20 +163,25 @@ class GameScene: SKScene {
             self.addChild(rabbitPlane)
         
         
-//        TextureAtlasEnemy = SKTextureAtlas(named: "enemy.atlas")
-//            for i in 0...1{
-//
-//                let Name = "Enemy\(i)"
-//                TextureArrayEnemy.append(SKTexture(imageNamed: Name))
-//
-//            }
-//            enemyPlane = SKSpriteNode(imageNamed: "Enemy0" )
-//            enemyPlane.setScale(0.5)
-//            enemyPlane.position = CGPoint(x:self.frame.width/2, y: self.frame.height/2 + 200)
-//            enemyPlane.zPosition = 2
-//            enemyPlane.run(SKAction.repeatForever(SKAction.animate(with: TextureArrayEnemy, timePerFrame: 0.1, resize: true, restore: true)))
-//
-//            self.addChild(enemyPlane)
+        
+        let spawn = SKAction.run({
+            () in
+            
+            self.enemySpawn()
+        })
+        
+        let delay = SKAction.wait(forDuration: 2.0)
+        let spawnDelay = SKAction.sequence([spawn, delay])
+        let spawnDelayForever = SKAction.repeatForever(spawnDelay)
+        self.run(spawnDelayForever)
+        
+        let distance = CGFloat(self.frame.width * 3 + enemyPlane.frame.width)
+        let moveEnemy = SKAction.moveBy(x: 0, y: -distance - 60, duration: TimeInterval(0.010 * distance ))
+        let removeEnemy = SKAction.removeFromParent()
+        moveAndRemove = SKAction.sequence([moveEnemy, removeEnemy])
+        
+        
+
         
         
         
@@ -180,10 +195,42 @@ class GameScene: SKScene {
     }
     
     
+    func fireBullet(){
+        
+        //self.run(SKAction.playSoundFileNamed(<#T##soundFile: String##String#>, waitForCompletion: <#T##Bool#>))
+        
+        let bullet = SKSpriteNode(imageNamed: "PlayerBullet")
+        bullet.position = rabbitPlane.position
+        bullet.position.y += 5
+        bullet.zPosition = 2
+        
+        bullet.physicsBody = SKPhysicsBody(rectangleOf: bullet.size)
+        bullet.physicsBody?.categoryBitMask = PhysicsBodyType.bullet
+        bullet.physicsBody?.collisionBitMask = PhysicsBodyType.enemyPlane
+        bullet.physicsBody?.contactTestBitMask = PhysicsBodyType.enemyPlane
+        bullet.physicsBody?.isDynamic = true
+        bullet.physicsBody?.affectedByGravity = false
+        bullet.physicsBody?.usesPreciseCollisionDetection = true
+        
+        self.addChild(bullet)
+        
+        var actionArray = [SKAction]()
+        
+        actionArray.append(SKAction.move(to: CGPoint(x: rabbitPlane.position.x, y: self.frame.size.height + 10), duration: 0.3))
+        actionArray.append(SKAction.removeFromParent())
+        
+        bullet.run(SKAction.sequence(actionArray))
+        
+        
+        
+        
+        
+        
+        
+    }
+    
+    
     func enemySpawn() {
-        
-        
-        
         
         TextureAtlasEnemy = SKTextureAtlas(named: "enemy.atlas")
             for i in 0...1{
@@ -200,7 +247,7 @@ class GameScene: SKScene {
         self.addChild(enemyPlane)
 
         
-        var randomPosition = CGFloat.random(min: -200, max: 200)
+        let randomPosition = CGFloat.random(min: -200, max: 200)
         enemyPlane.position.x = enemyPlane.position.x + randomPosition
         
         
@@ -223,7 +270,7 @@ class GameScene: SKScene {
        
    }
     @objc func attackButtonAction(_ : UIButton){
-        
+        fireBullet()
     }
       @objc func specialButtonAction(_ : UIButton){
           
@@ -231,23 +278,13 @@ class GameScene: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         //scene?.view?.presentScene(OptionScene(size: self.frame.size))
         
-        let spawn = SKAction.run({
-            () in
-            
-            self.enemySpawn()
-        })
-        
-        let delay = SKAction.wait(forDuration: 2.0)
-        let spawnDelay = SKAction.sequence([spawn, delay])
-        let spawnDelayForever = SKAction.repeatForever(spawnDelay)
-        self.run(spawnDelayForever)
-        
-        let distance = CGFloat(self.frame.width * 3 + enemyPlane.frame.width)
-        let moveEnemy = SKAction.moveBy(x: 0, y: -distance - 60, duration: TimeInterval(0.010 * distance ))
-        let removeEnemy = SKAction.removeFromParent()
-        moveAndRemove = SKAction.sequence([moveEnemy, removeEnemy])
         
         
+        
+        
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
     }
     
