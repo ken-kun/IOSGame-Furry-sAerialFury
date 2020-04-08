@@ -158,6 +158,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             rabbitPlane.setScale(0.5)
             rabbitPlane.position = CGPoint(x:self.frame.width/2, y: self.frame.height/2 - 200)
             rabbitPlane.zPosition = 3
+            rabbitPlane.physicsBody = SKPhysicsBody(rectangleOf: rabbitPlane.size )
+            rabbitPlane.physicsBody?.categoryBitMask = PhysicsBodyType.rabbitPlane
+            rabbitPlane.physicsBody?.collisionBitMask = PhysicsBodyType.enemyBullet | PhysicsBodyType.enemyPlane
+            rabbitPlane.physicsBody?.contactTestBitMask = PhysicsBodyType.enemyBullet | PhysicsBodyType.enemyPlane
+            rabbitPlane.physicsBody?.affectedByGravity = false
+            rabbitPlane.physicsBody?.isDynamic = true;
             rabbitPlane.run(SKAction.repeatForever(SKAction.animate(with: TextureArray, timePerFrame: 0.1, resize: true, restore: true)))
         
             self.addChild(rabbitPlane)
@@ -289,6 +295,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             enemyPlane.setScale(0.5)
             enemyPlane.position = CGPoint(x:self.frame.width/2, y: self.frame.height/2 + 600)
             enemyPlane.zPosition = 2
+        
+            enemyPlane.physicsBody = SKPhysicsBody(rectangleOf: enemyPlane.size )
+            enemyPlane.physicsBody?.categoryBitMask = PhysicsBodyType.enemyPlane
+            enemyPlane.physicsBody?.collisionBitMask = PhysicsBodyType.bullet | PhysicsBodyType.rabbitPlane
+            enemyPlane.physicsBody?.contactTestBitMask = PhysicsBodyType.bullet | PhysicsBodyType.rabbitPlane
+            enemyPlane.physicsBody?.affectedByGravity = false
+            enemyPlane.physicsBody?.isDynamic = true;
             enemyPlane.run(SKAction.repeatForever(SKAction.animate(with: TextureArrayEnemy, timePerFrame: 0.1, resize: true, restore: true)))
         self.addChild(enemyPlane)
 
