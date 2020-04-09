@@ -335,9 +335,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
           
       }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        //scene?.view?.presentScene(OptionScene(size: self.frame.size))
+        scene?.view?.presentScene(OptionScene(size: self.frame.size))
         
-        enemyFireBullet()
+        //enemyFireBullet()
         
         
         
