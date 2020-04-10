@@ -54,7 +54,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var moveAndRemove = SKAction()
     
     var score = Int()
-    let scoreLabel = SKLabelNode()
+    var scoreLabel = SKLabelNode()
     
     var death = Bool()
     var gameStart = Bool()
@@ -91,6 +91,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         setupJoystick()
         
         
+        
+        
          self.backgroundColor = SKColor.init(red: 0, green: 0, blue: 0, alpha: 0)
          mainGame = SKLabelNode(fontNamed: "Chalkduster")
          mainGame.text = "Press the screen to Start!"
@@ -99,7 +101,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
          mainGame.position = CGPoint(x: frame.midX, y: frame.midY+300)
          addChild(mainGame)
          
-         let scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
+         scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
          scoreLabel.text = "Score: " + "\(score)"
          scoreLabel.fontSize = 30
          scoreLabel.zPosition = 3
@@ -246,7 +248,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if(firstBody.categoryBitMask == PhysicsBodyType.enemyPlane && secondBody.categoryBitMask == PhysicsBodyType.bullet || firstBody.categoryBitMask == PhysicsBodyType.bullet && secondBody.categoryBitMask == PhysicsBodyType.enemyPlane)
         {
-            score+=1
+            
             scoreLabel.text = "Score: " + "\(score)"
             scoreLabel.zPosition = 3
             print("Player Bulley hit")
@@ -266,6 +268,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             //print("Enemy Bullet hit")
             
             playerBoom(enemyBullet: firstBody.node as! SKSpriteNode, rabbitPlane: secondBody.node as! SKSpriteNode)
+            
+            //isPaused = true
         }
         
         
@@ -292,15 +296,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         bullet.removeFromParent()
         enemyPlane.removeFromParent()
         
+        enemyExplosion.run(SKAction.animate(with: TextureArrayEEnemy, timePerFrame: 0.1, resize: true, restore: true))
+        
         self.run(SKAction.wait(forDuration: 1)){
             self.enemyExplosion.removeFromParent()
         }
         
-        enemyExplosion.run(SKAction.animate(with: TextureArrayEEnemy, timePerFrame: 0.1, resize: true, restore: true))
         
         
         
-        score+=1
+        
+        score += 1
     }
     
     func playerBoom(enemyBullet: SKSpriteNode, rabbitPlane: SKSpriteNode){
@@ -511,6 +517,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 bg.position = CGPoint(x: bg.position.x, y: bg.position.y + bg.size.height * 2)
             }
         }))
+        
+        
     }
     
     
