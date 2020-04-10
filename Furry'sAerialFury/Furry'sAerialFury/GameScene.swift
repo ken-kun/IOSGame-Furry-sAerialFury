@@ -239,8 +239,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             //scoreLabel.text = "\(score)"
             //print("Bodies hit")
             
-            enemyBoom()
-            playerBoom()
+            
             
             
         }
@@ -253,7 +252,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             print("Player Bulley hit")
             print(score)
             
-            enemyBoom()
+            enemyBoom(bullet: firstBody.node as! SKSpriteNode, enemyPlane: secondBody.node as! SKSpriteNode)
             
             
             
@@ -266,7 +265,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             //isPaused = true
             //print("Enemy Bullet hit")
             
-            playerBoom()
+            playerBoom(enemyBullet: firstBody.node as! SKSpriteNode, rabbitPlane: secondBody.node as! SKSpriteNode)
         }
         
         
@@ -274,12 +273,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     
-    func enemyBoom(){
+    func enemyBoom(bullet: SKSpriteNode, enemyPlane: SKSpriteNode){
         
         enemyExplosion = SKSpriteNode(imageNamed: "Explotion1.png")
         enemyExplosion.setScale(1)
         enemyExplosion.zPosition = 3
         enemyExplosion.position = CGPoint(x: enemyPlane.position.x, y: enemyPlane.position.y)
+        self.addChild(enemyExplosion)
         
         TextureAtlasEExplosion = SKTextureAtlas(named: "EnemyExplosion.atlas")
         for i in 1...3{
@@ -289,14 +289,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         }
         
-        enemyPlane.run(SKAction.animate(with: TextureArrayEEnemy, timePerFrame: 0.1, resize: true, restore: true))
+        bullet.removeFromParent()
+        enemyPlane.removeFromParent()
+        
+        self.run(SKAction.wait(forDuration: 1)){
+            self.enemyExplosion.removeFromParent()
+        }
+        
+        enemyExplosion.run(SKAction.animate(with: TextureArrayEEnemy, timePerFrame: 0.1, resize: true, restore: true))
+        
+        
+        
+        score+=1
     }
     
-    func playerBoom(){
+    func playerBoom(enemyBullet: SKSpriteNode, rabbitPlane: SKSpriteNode){
         playerExplosion = SKSpriteNode(imageNamed: "Explotion4.png")
         playerExplosion.setScale(1)
         playerExplosion.zPosition = 3
         playerExplosion.position = CGPoint(x: rabbitPlane.position.x, y: rabbitPlane.position.y)
+        self.addChild(playerExplosion)
         
         TextureAtlasPExplosion = SKTextureAtlas(named: "PlayerExplosion.atlas")
         for i in 4...8{
@@ -306,7 +318,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         }
         
-        rabbitPlane.run(SKAction.animate(with: TextureArrayEPlayer, timePerFrame: 0.1, resize: true, restore: true))
+        enemyBullet.removeFromParent()
+        rabbitPlane.removeFromParent()
+        
+        self.run(SKAction.wait(forDuration: 1)){
+            self.playerExplosion.removeFromParent()
+        }
+        
+        playerExplosion.run(SKAction.animate(with: TextureArrayEPlayer, timePerFrame: 0.1, resize: true, restore: true))
     }
     
     func enemyFireBullet(){
@@ -431,7 +450,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        scene?.view?.presentScene(OptionScene(size: self.frame.size))
+        //scene?.view?.presentScene(OptionScene(size: self.frame.size))
         
         //enemyFireBullet()
         
