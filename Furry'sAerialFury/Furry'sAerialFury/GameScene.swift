@@ -447,6 +447,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     @objc func pauseButtonAction(_ : UIButton){
        isPaused = true
+        scene?.view?.presentScene(OptionScene(size: self.frame.size))
    }
     @objc func attackButtonAction(_ : UIButton){
         fireBullet()
