@@ -14,6 +14,7 @@ class CreditScene: SKScene {
     
     
     var background = SKSpriteNode()
+    var optionsButton = SKSpriteNode()
     
     
     override func didMove(to view: SKView) {
@@ -59,11 +60,35 @@ class CreditScene: SKScene {
         name4.fontSize = 50
         name4.position = CGPoint(x: frame.midX, y: frame.midY - 200)
         addChild(name4)
+        
+        optionsButton = SKSpriteNode(imageNamed: "Back.png")
+        
+        optionsButton.position = CGPoint(x: self.frame.width/2 - 100, y: self.frame.height/2 - 250)
+        optionsButton.setScale(0.2)
+        optionsButton.zPosition = 6
+        self.addChild(optionsButton)
     
     }
   
    
    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        scene?.view?.presentScene(PauseScene(size: self.frame.size))
+    for touch in touches {
+    //TODO: - Create a transition
+    
+    let location = touch.location(in: self)
+    
+        if(optionsButton.contains(location)){
+        
+            scene?.view?.presentScene(MenuScene(size: self.frame.size))
+        }
+    
+    
+    }
+    
+    
+    
+    
+    
+        
     }
 }

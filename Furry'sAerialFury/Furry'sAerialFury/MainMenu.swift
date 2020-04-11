@@ -30,6 +30,7 @@ class MenuScene: SKScene, SKPhysicsContactDelegate  {
     var tittle3 = SKSpriteNode()
     var scoreButton = SKSpriteNode()
     var startButton = SKSpriteNode()
+    var optionsButton = SKSpriteNode()
     
     var audio = AVAudioPlayer()
     
@@ -72,16 +73,22 @@ class MenuScene: SKScene, SKPhysicsContactDelegate  {
         
         startButton = SKSpriteNode(imageNamed: "Start.png")
         scoreButton = SKSpriteNode(imageNamed: "Score.png")
+        optionsButton = SKSpriteNode(imageNamed: "Options.png")
         
-        startButton.position = CGPoint(x: self.frame.width/2 - 100, y: self.frame.height/2 - 250)
-        startButton.setScale(3)
+        startButton.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2 - 100)
+        startButton.setScale(0.5)
         startButton.zPosition = 6
         self.addChild(startButton)
         
         scoreButton.position = CGPoint(x: self.frame.width/2 + 100, y: self.frame.height/2 - 250)
-        scoreButton.setScale(3)
+        scoreButton.setScale(0.1)
         scoreButton.zPosition = 6
         self.addChild(scoreButton)
+        
+        optionsButton.position = CGPoint(x: self.frame.width/2 - 100, y: self.frame.height/2 - 250)
+        optionsButton.setScale(0.05)
+        optionsButton.zPosition = 6
+        self.addChild(optionsButton)
         
         /*
         let BGM = Bundle.main.path(forResource: "Floral Fury", ofType: "mp3")
@@ -116,6 +123,18 @@ class MenuScene: SKScene, SKPhysicsContactDelegate  {
                 
                 scene?.view?.presentScene(GameScene(size: self.frame.size))
             }
+            
+            if(scoreButton.contains(location)){
+                
+                scene?.view?.presentScene(CreditScene(size: self.frame.size))
+            }
+            
+            if(optionsButton.contains(location)){
+                
+                scene?.view?.presentScene(OptionScene(size: self.frame.size))
+            }
+            
+            
         }
     }
 }

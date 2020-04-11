@@ -50,10 +50,12 @@ class GameOverScene: SKScene {
            mainMenuButton.removeFromSuperview()
        }
 @objc func mainMenuButtonAction(_ : UIButton){
-          
+          scene?.view?.presentScene(MenuScene(size: self.frame.size))
+
 }
 @objc func retryButtonAction(_ : UIButton){
-            
+            scene?.view?.presentScene(GameScene(size: self.frame.size))
+
 }
     
 override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

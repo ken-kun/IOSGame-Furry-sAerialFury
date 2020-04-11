@@ -16,6 +16,7 @@ class OptionScene: SKScene {
     
     var slider = UISlider()
     var audio = AVAudioPlayer()
+    var optionsButton = SKSpriteNode()
     
     
     
@@ -59,6 +60,13 @@ class OptionScene: SKScene {
         
         ChangeAudioTime(sender: slider)
         
+        optionsButton = SKSpriteNode(imageNamed: "Back.png")
+        
+        optionsButton.position = CGPoint(x: self.frame.width/2 - 100, y: self.frame.height/2 - 250)
+        optionsButton.setScale(0.2)
+        optionsButton.zPosition = 6
+        self.addChild(optionsButton)
+        
     }
   
     override func update(_ currentTime: TimeInterval) {
@@ -66,8 +74,22 @@ class OptionScene: SKScene {
       //  print(slider.value)
     }
     
-   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        scene?.view?.presentScene(CreditScene(size: self.frame.size))
+   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
+   {
+    for touch in touches {
+        //TODO: - Create a transition
+        
+        let location = touch.location(in: self)
+        
+            if(optionsButton.contains(location)){
+            
+                scene?.view?.presentScene(MenuScene(size: self.frame.size))
+            }
+        
+        
+        }
+    
+    
     }
     
     internal override func willMove(from view: SKView) {

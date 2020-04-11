@@ -22,7 +22,7 @@ class PauseScene: SKScene {
         
        
         restartButton.frame = CGRect(x: 110.0, y: 300.0, width: 200.0, height: 52.0)
-        restartButton.setTitle("Resume", for: .normal)
+        restartButton.setTitle("Restart", for: .normal)
         restartButton.layer.borderWidth = 5.0
         restartButton.layer.borderColor = UIColor.white.cgColor
         restartButton.backgroundColor = UIColor.black
@@ -61,13 +61,15 @@ class PauseScene: SKScene {
         backToMainButton.removeFromSuperview()
     }
     @objc func restartButtonAction(_ : UIButton){
-        
+        scene?.view?.presentScene(GameScene(size: self.frame.size))
     }
     @objc func resumeButtonAction(_ : UIButton){
           
+        
+        
     }
     @objc func backToMainButtonAction(_ : UIButton){
-            
+            scene?.view?.presentScene(MenuScene(size: self.frame.size))
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         scene?.view?.presentScene(GameOverScene(size: self.frame.size))
