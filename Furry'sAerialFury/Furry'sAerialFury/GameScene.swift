@@ -23,6 +23,10 @@ let pauseButton = UIButton.init(type:.system)
 let attackButton = UIButton.init(type:.system)
 let specialButton = UIButton.init(type:.system)
 //let DPAD = UIButton.init(type:.system)
+
+var playerShootSound = AVAudioPlayer()
+var explosionSound = AVAudioPlayer()
+
 class GameScene: SKScene, SKPhysicsContactDelegate {
     struct ScreenSize {
       static let width        = UIScreen.main.bounds.size.width
@@ -189,6 +193,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         score = 0
         death = false
         gameStart = false
+        BGMaudio.play()
     }
     
     func createScene(){
@@ -238,6 +243,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.run(SKAction.wait(forDuration: 2)){
                 self.scene?.view?.presentScene(GameOverScene(size: self.frame.size))
             }
+            
+            do {
+                explosionSound = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "Explosion", ofType: "mp3")!))
+            }
+            catch {
+                print(error)
+            }
+            
+            explosionSound.play()
+            BGMaudio.stop()
 
             
             
@@ -253,7 +268,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             enemyBoom(bullet: firstBody.node as! SKSpriteNode, enemyPlane: secondBody.node as! SKSpriteNode)
             
+            do {
+                explosionSound = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "Explosion", ofType: "mp3")!))
+            }
+            catch {
+                print(error)
+            }
             
+            explosionSound.play()
             
             
             
@@ -271,6 +293,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.run(SKAction.wait(forDuration: 2)){
                 self.scene?.view?.presentScene(GameOverScene(size: self.frame.size))
             }
+            
+            
+            do {
+                explosionSound = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "Explosion", ofType: "mp3")!))
+            }
+            catch {
+                print(error)
+            }
+            
+            explosionSound.play()
+            BGMaudio.stop()
+            
         }
         
 
@@ -285,7 +319,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         enemyExplosion.zPosition = 3
         enemyExplosion.position = CGPoint(x: enemyPlane.position.x, y: enemyPlane.position.y)
         self.addChild(enemyExplosion)
-        
+    
         TextureAtlasEExplosion = SKTextureAtlas(named: "EnemyExplosion.atlas")
         for i in 1...3{
             
@@ -305,6 +339,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                    
                    let Name = "Explotion\(i)"
                    TextureArrayEPlayer.append(SKTexture(imageNamed: Name))
+                
                    
         }
                
@@ -511,7 +546,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scene?.view?.presentScene(PauseScene(size: self.frame.size))
    }
     @objc func attackButtonAction(_ : UIButton){
+        
         fireBullet()
+        
+        do {
+            playerShootSound = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "Shoot", ofType: "mp3")!))
+        }
+        catch {
+            print(error)
+        }
+        
+        playerShootSound.play()
+        
     }
       @objc func specialButtonAction(_ : UIButton){
           

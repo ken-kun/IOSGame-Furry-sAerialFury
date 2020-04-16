@@ -7,9 +7,13 @@
 //
 
 import SpriteKit
+import AVFoundation
 let retryButton = UIButton.init(type:.system)
 let mainMenuButton = UIButton.init(type:.system)
 
+
+var sound = AVAudioPlayer()
+var bunny = SKSpriteNode()
 class GameOverScene: SKScene {
     
     
@@ -43,6 +47,25 @@ class GameOverScene: SKScene {
         mainMenuButton.layer.cornerRadius = 15.0
         mainMenuButton.addTarget(self, action: #selector(mainMenuButtonAction(_:)), for: .touchUpInside)
         self.view?.addSubview(mainMenuButton)
+        
+        
+        
+        do {
+            sound = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "Sad-trombone", ofType: "mp3")!))
+        }
+        catch {
+            print(error)
+        }
+        
+        sound.play()
+        
+        bunny = SKSpriteNode(imageNamed: "SadBunny.png")
+        bunny.setScale(0.3)
+        bunny.position = CGPoint(x: frame.midX, y: frame.maxY - 700)
+        self.addChild(bunny)
+        
+        
+        
     }
      internal override func willMove(from view: SKView) {
            retryButton.removeFromSuperview()

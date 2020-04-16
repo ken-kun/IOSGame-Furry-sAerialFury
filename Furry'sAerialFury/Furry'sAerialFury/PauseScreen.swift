@@ -20,6 +20,11 @@ class PauseScene: SKScene {
         pause.position = CGPoint(x: frame.midX, y: frame.midY+300)
         addChild(pause)
         
+        
+        let background = SKSpriteNode(imageNamed: "forest.png")
+        background.setScale(0.9)
+        background.position = CGPoint(x: self.frame.width/2, y: background.frame.height/1.5)
+              self.addChild(background)
        
         restartButton.frame = CGRect(x: 110.0, y: 300.0, width: 200.0, height: 52.0)
         restartButton.setTitle("Restart", for: .normal)

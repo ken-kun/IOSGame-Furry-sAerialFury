@@ -15,6 +15,9 @@
 		170BC62A2412B2B40053774E /* PauseScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 170BC6292412B2B40053774E /* PauseScene.sks */; };
 		1A1218E22440FCB800897113 /* PlayerExplosion.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1A1218E12440FCB700897113 /* PlayerExplosion.atlas */; };
 		1A1218E42440FCBE00897113 /* EnemyExplosion.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1A1218E32440FCBD00897113 /* EnemyExplosion.atlas */; };
+		1A74DB46244917EE0026DCB6 /* Shoot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1A74DB45244917EE0026DCB6 /* Shoot.mp3 */; };
+		1A74DB48244917F90026DCB6 /* Explosion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1A74DB47244917F90026DCB6 /* Explosion.mp3 */; };
+		1A74DB4A24491C200026DCB6 /* Sad-trombone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1A74DB4924491C200026DCB6 /* Sad-trombone.mp3 */; };
 		1A77E373241866D300E7D37F /* Floral Fury.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1A77E372241866D300E7D37F /* Floral Fury.mp3 */; };
 		1AD5CDC02439500E00B24F2A /* plane.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1AD5CDBF2439500E00B24F2A /* plane.atlas */; };
 		1AD5CDC4243954FB00B24F2A /* enemy.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1AD5CDC3243954FB00B24F2A /* enemy.atlas */; };
@@ -61,6 +64,9 @@
 		170BC6292412B2B40053774E /* PauseScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PauseScene.sks; sourceTree = "<group>"; };
 		1A1218E12440FCB700897113 /* PlayerExplosion.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = PlayerExplosion.atlas; sourceTree = "<group>"; };
 		1A1218E32440FCBD00897113 /* EnemyExplosion.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = EnemyExplosion.atlas; sourceTree = "<group>"; };
+		1A74DB45244917EE0026DCB6 /* Shoot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Shoot.mp3; sourceTree = "<group>"; };
+		1A74DB47244917F90026DCB6 /* Explosion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Explosion.mp3; sourceTree = "<group>"; };
+		1A74DB4924491C200026DCB6 /* Sad-trombone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Sad-trombone.mp3"; sourceTree = "<group>"; };
 		1A77E372241866D300E7D37F /* Floral Fury.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Floral Fury.mp3"; sourceTree = "<group>"; };
 		1AD5CDBF2439500E00B24F2A /* plane.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = plane.atlas; sourceTree = "<group>"; };
 		1AD5CDC3243954FB00B24F2A /* enemy.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = enemy.atlas; sourceTree = "<group>"; };
@@ -135,6 +141,9 @@
 		B5C02F41241296560029417E /* Furry'sAerialFury */ = {
 			isa = PBXGroup;
 			children = (
+				1A74DB4924491C200026DCB6 /* Sad-trombone.mp3 */,
+				1A74DB47244917F90026DCB6 /* Explosion.mp3 */,
+				1A74DB45244917EE0026DCB6 /* Shoot.mp3 */,
 				1A1218E32440FCBD00897113 /* EnemyExplosion.atlas */,
 				1A1218E12440FCB700897113 /* PlayerExplosion.atlas */,
 				F3E6D1E1243A7DC9007C5216 /* AnalogJoystick.swift */,
@@ -294,12 +303,15 @@
 				B5C02F53241296560029417E /* LaunchScreen.storyboard in Resources */,
 				170BC6242412B1B00053774E /* CreditScene.sks in Resources */,
 				1AD5CDC02439500E00B24F2A /* plane.atlas in Resources */,
+				1A74DB4A24491C200026DCB6 /* Sad-trombone.mp3 in Resources */,
 				1AD5CDC4243954FB00B24F2A /* enemy.atlas in Resources */,
 				1A1218E42440FCBE00897113 /* EnemyExplosion.atlas in Resources */,
 				1A77E373241866D300E7D37F /* Floral Fury.mp3 in Resources */,
 				B5C02F47241296560029417E /* Actions.sks in Resources */,
+				1A74DB48244917F90026DCB6 /* Explosion.mp3 in Resources */,
 				1A1218E22440FCB800897113 /* PlayerExplosion.atlas in Resources */,
 				170BC6222412B03B0053774E /* OptionScene.sks in Resources */,
+				1A74DB46244917EE0026DCB6 /* Shoot.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,14 +519,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.2;
+				CURRENT_PROJECT_VERSION = 1.3;
 				DEVELOPMENT_TEAM = VDQS4882Z8;
 				INFOPLIST_FILE = "Furry'sAerialFury/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = "CHKR.Furry-sAerialFury";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -527,14 +539,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.2;
+				CURRENT_PROJECT_VERSION = 1.3;
 				DEVELOPMENT_TEAM = VDQS4882Z8;
 				INFOPLIST_FILE = "Furry'sAerialFury/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = "CHKR.Furry-sAerialFury";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
